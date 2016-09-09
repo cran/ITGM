@@ -1,7 +1,12 @@
-6bbe331875a8127eb3013991b72ac566 *DESCRIPTION
-30badcba7cca335b917d91a3d0d47195 *NAMESPACE
+f4b374dd9aa889b7caf1b4201d29d1e7 *DESCRIPTION
+aba866ea4d9e9822ad916af1815e669a *NAMESPACE
+8a938ce37d2d9c7df020dcbe559b9ab1 *R/getModelosLiteraturaExclusivos.R
+49985a7645678169b8a4d5ce3489987c *R/getModelosLiteraturaGenericos.R
 11ef91bb48767f338c8f6c1fe135e6e4 *R/maiTOmdd.R
 b398c7d7202e9cd22291a0b77ae0a559 *R/primeirasMedicoes.R
+47824841d966e0edee725f5dc392e4e2 *README.md
+6c046663ae0e06f5710f1f08fd78897e *man/getModelosLiteraturaExclusivos.Rd
+021fc155703c918ab629915745d761e7 *man/getModelosLiteraturaGenericos.Rd
 8da32cfd3f1b24a452b74e62c6a024eb *man/maiTOmdd.Rd
 63e719603313c92f957c10bab75de364 *man/primeirasMedicoes.Rd
 36a320264b46eec784781c05d8359d54 *tests/testthat.R
