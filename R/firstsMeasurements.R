@@ -13,15 +13,9 @@
 ##' dtf = data.frame(
 ##' grupo = c(1,2,3,4,1,2,3,4),
 ##' medicoes= c(10,20,30,40,5,30,1,52))
-##' primeirasMedicoes(dtf, group = "grupo", age = "medicoes")
+##' firstsMeasurements(dtf, group = "grupo", age = "medicoes")
 ##' @export
-primeirasMedicoes <- function(dtFrame, group = "parcela", age = "idadearred"){
-
-  #dfParcelasIdade = (fn$sqldf("select $group, $age from dtFrame"))
-  #dfParcelasIdade = data.table(dfParcelasIdade)
-  #setkey(dfParcelasIdade, group)
-  #dfParcelasPrimeirasMedicoes <- ddply(dfParcelasIdade, .(group), head, n=1)
-  #names(dfParcelasPrimeirasMedicoes)[2] = "primeiraMedicao"
+firstsMeasurements <- function(dtFrame, group = "parcela", age = "idadearred"){
 
   dfParcelasPrimeirasMedicoes = fn$sqldf("select $group, min($age) as primeiraMedicao from dtFrame group by $group")
 
