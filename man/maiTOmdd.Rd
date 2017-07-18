@@ -38,4 +38,3 @@ data.table what is "inventario" with some added fields
 \description{
 this function add fields to returned base "inventario" in order to make it usable for diameter distribution models
 }
-

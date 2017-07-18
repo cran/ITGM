@@ -28,4 +28,3 @@ project(firstAge = NaN, lastAge, fitDAP, fitHT, base, mapper = list(age1 =
 \description{
 this function provides a list of volume projections in a future age or from one to another future age
 }
-

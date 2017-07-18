@@ -16,4 +16,3 @@ will be returned list of function with exclusive model
 \description{
 This function creates and returns an array with the usual models mapped to the mapping vector
 }
-

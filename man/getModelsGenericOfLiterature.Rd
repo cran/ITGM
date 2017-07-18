@@ -12,4 +12,3 @@ will be returned list of models generic
 \description{
 This function creates and returns an array with the usual models of literature
 }
-
