@@ -9,5 +9,7 @@ getAllGraphicsFn <- function(){
            getGraphicObservadoXEstimado,
            getGraphicResiduoAbs,
            getGraphicResiduoPerc,
-           plotRB))
+           plotRB,
+           getGraphicVolumeTotal,
+           getggplot2GraphicObservadoXEstimadoTotal))
 }

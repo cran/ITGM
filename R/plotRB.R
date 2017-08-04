@@ -15,6 +15,9 @@
 ##' @param diretorio database to retireve fields to id
 ##' @param datadiretorio optional abstract path of directory
 ##' @param HTTPS script in https?
+##' @param totalizar generat graphic of volume total
+##' @param campoID name of parcela field in data
+##' @param mapeamento name of fields on base
 ##' @param ... optionals params to plot graphic in ITGM
 ##' @return will be returned a rbokeh graphic
 ##' @import rbokeh
@@ -37,7 +40,41 @@ plotRB <- function(
   diretorio = NULL,
   datadiretorio = NULL,
   HTTPS = FALSE,
+  totalizar = NULL,
+  campoID = NULL,
+  mapeamento = list(idade2 = "idadearred2", parcela = "parcela", areacorr = "areacorr"),
   ...) {
+
+  if (is.null(campoID) && !is.null(id) && !is.null(data)) {
+    for(name in names(data))
+      ifelse(FALSE %in% (data[,name] == id), "", {campoID = name;})
+  }
+
+  if(is.null(campoID) && !is.null(id) && !is.null(data))
+    stop("INFORME ID na variavel data! impossivel obter campo ID! PLOTBR")
+
+  if(!is.null(campoID)) {
+    id = data[, campoID]
+    if(colID == 'idLabel')
+      colID = campoID
+  }
+
+  if (!is.null(data) && !is.null(totalizar)) {
+
+    data$observado = observado
+    data$estimado = estimado
+    data$idade = data[, mapeamento$idade2]
+    cp = ifelse(is.null(campoID), "", { paste0(campoID, ", "); })
+    df = sqldf(paste("SELECT ", cp, mapeamento$parcela, " AS parcela, idade, SUM(observado) AS volumeTotal2, SUM(estimado) AS volumeTotal2EstMAI, ", mapeamento$areacorr, " AS areacorr FROM data GROUP By ", mapeamento$parcela, ", idade"))
+    df$volumeTotal2HA = (10000/df$areacorr) * df$volumeTotal2
+    df$volumeTotal2EstMAIHA = (10000/df$areacorr) * df$volumeTotal2EstMAI
+
+    observado = df$volumeTotal2HA
+    estimado = df$volumeTotal2EstMAIHA
+    if(!is.null(campoID)){
+      id = df[, campoID]
+    }
+  }
 
   p <- figure(title = titulo, width = 500, height = 500, xlab = labsX, ylab = labsy)
 
@@ -51,7 +88,7 @@ plotRB <- function(
     dftmp = data.frame(x = unique(id))
     dftmp$y = randomColor((length(dftmp$x)), luminosity = c("dark"))
     cores = sapply(id, function(X) { return(dftmp$y[dftmp$x == X]) })
-    p <- ly_points(fig = p, observado, estimado, fill_color=cores, fill_alpha = 0.6, line_color = cores, line_alpha = 1, hover = eval(parse(text = paste('list(', labsX,'= observado, ', labsy, ' = estimado, ', colID, ' = ', id,')'))))
+    p <- ly_points(fig = p, observado, estimado, fill_color=cores, fill_alpha = 0.6, line_color = cores, line_alpha = 1, hover = eval(parse(text = paste('list(', labsX,'= observado, ', labsy, ' = estimado, ', colID, ' = id )'))))
   }
 
   p <- ly_abline(fig = p, 0, 1, width = 2) %>%
@@ -64,7 +101,7 @@ plotRB <- function(
     opcoes =base = dir = func = ''
 
     lab = '<script type="text/javascript">\n'
-    divs = '<table style="position: absolute; top: 30px; left: 520px;">\n<tbody>\n<tr style="vertical-align: baseline;">\n<td>Id:</td><td id="select">\n</td>\n</tr>\n<tr style="vertical-align: baseline;">\n<td>\n<div id="checkboxes"></div>\n</td>\n'
+    divs = '<table style="position: absolute; top: 30px; left: 520px;">\n<tbody>\n<tr style="vertical-align: baseline;">\n<td>Id:</td><td id="select">\n</td>\n</tr>\n<tr style="vertical-align: baseline;">\n<td>Id:</td><td id="select2">\n</td>\n</tr>\n<tr style="vertical-align: baseline;">\n<td>\n<div id="checkboxes"></div>\n</td>\n'
 
     if (!is.null(data)){
       f=  paste0(save, 'base.rbokeh.csv')
@@ -116,7 +153,7 @@ plotRB <- function(
                  elID , '">{"x":{"elementid":"', elID , '","modeltype":"Plot","modelid":"',
                  mdID , '","docid":"', dcID , '","docs_json"', jSon, '</script>\n</body>\n</html>')
 
-    cat(str, file=paste0(save, nome, sobnome, ".html"))
+    cat(str, file=paste0(save, nome, " ", sobnome, ".html"))
   }
 
   return (p)

@@ -8,7 +8,9 @@ plotRB(titulo = "observadoXestimado", nome = "observadoXestimado",
   observado, estimado, id = NULL, save = NULL, labsX = "observado",
   labsy = "estimado", showTestF = TRUE, colID = "idLabel",
   sobnome = "ObservadoXEstimado", data = NULL, diretorio = NULL,
-  datadiretorio = NULL, HTTPS = FALSE, ...)
+  datadiretorio = NULL, HTTPS = FALSE, totalizar = NULL, campoID = NULL,
+  mapeamento = list(idade2 = "idadearred2", parcela = "parcela", areacorr =
+  "areacorr"), ...)
 }
 \arguments{
 \item{titulo}{is the title graphic}
@@ -40,6 +42,12 @@ plotRB(titulo = "observadoXestimado", nome = "observadoXestimado",
 \item{datadiretorio}{optional abstract path of directory}
 
 \item{HTTPS}{script in https?}
+
+\item{totalizar}{generat graphic of volume total}
+
+\item{campoID}{name of parcela field in data}
+
+\item{mapeamento}{name of fields on base}
 
 \item{...}{optionals params to plot graphic in ITGM}
 }

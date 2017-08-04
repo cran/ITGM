@@ -6,7 +6,8 @@
 \usage{
 avaliaVolumeAvancado2(base = NULL, basePredicao = NULL,
   baseProjecao = NULL, mapeamento = list(dap1 = "dap1", dap2 = "dap2", ht1 =
-  "ht1", ht2 = "ht2"), modelos = NULL, salvar = NULL, graficos = NULL,
+  "ht1", ht2 = "ht2", idade2 = "idadearred2", parcela = "parcela", areacorr =
+  "areacorr"), modelos = NULL, salvar = NULL, graficos = NULL,
   estatisticas = NULL, forcePredict = F, dividirEm = NULL,
   percentualDeTreino = 0.7, agruparPor = NULL,
   fnCalculaVolume = calculaVolumeDefault, rmColsSuspicious = F)
@@ -18,7 +19,7 @@ avaliaVolumeAvancado2(base = NULL, basePredicao = NULL,
 
 \item{baseProjecao}{data.frame with data to use in validation}
 
-\item{mapeamento}{name of field eight and diameter}
+\item{mapeamento}{name of fields on base}
 
 \item{modelos}{list of exclusive for base models}
 
