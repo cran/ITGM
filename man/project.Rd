@@ -4,9 +4,10 @@
 \alias{project}
 \title{Project Volume based in Ages}
 \usage{
-project(firstAge = NaN, lastAge, fitDAP, fitHT, base, mapper = list(age1 =
-  "idade1", age2 = "idade2", dap1 = "dap1", dap2 = "dap2", ht1 = "ht1", ht2 =
-  "ht2"), calcVolume = calculaVolumeDefault, withoutBaseFields = F)
+project(firstAge = NaN, lastAge, fitDAP, fitHT, base,
+  mapper = list(age1 = "idade1", age2 = "idade2", dap1 = "dap1", dap2 =
+  "dap2", ht1 = "ht1", ht2 = "ht2"), calcVolume = calculaVolumeDefault,
+  withoutBaseFields = F)
 }
 \arguments{
 \item{firstAge}{early age. if only one age use NaN}

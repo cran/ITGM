@@ -1,7 +1,7 @@
 Package: ITGM
 Type: Package
 Title: Individual Tree Growth Modeling
-Version: 0.6
+Version: 0.41
 Author: Clayton Vieira Fraga Filho, Miqueias Fernandes
 Maintainer: Clayton Vieira Fraga Filho <forestgrowthsoftware@gmail.com>
 Description: Individual tree model is an instrument to support the decision with
@@ -11,10 +11,10 @@ Description: Individual tree model is an instrument to support the decision with
 License: GPL-2
 LazyData: TRUE
 Depends: Fgmutils (>= 0.8), R (>= 3.0)
-Imports: gsubfn, data.table, sqldf, plyr, randomcoloR, rbokeh, ggplot2
-RoxygenNote: 6.0.1
+Imports: gsubfn, data.table, sqldf, plyr
+RoxygenNote: 6.1.1
 Suggests: testthat
 NeedsCompilation: no
-Packaged: 2017-07-26 04:07:01 UTC; mfernandes
+Packaged: 2018-11-19 12:25:43 UTC; Clayton
 Repository: CRAN
-Date/Publication: 2017-08-04 22:40:17 UTC
+Date/Publication: 2018-11-19 13:10:03 UTC

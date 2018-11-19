@@ -4,7 +4,8 @@
 \alias{getModelsExclusiveOfLiterature}
 \title{get Models Literature Exclusives}
 \usage{
-getModelsExclusiveOfLiterature(mapper = c("idade1", "idade2", "bai1", "s"))
+getModelsExclusiveOfLiterature(mapper = c("idade1", "idade2", "bai1",
+  "s"))
 }
 \arguments{
 \item{mapper}{list of names fields of database will work "idade1", "idade2", "bai1", "s"}
