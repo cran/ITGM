@@ -4,8 +4,20 @@
 \alias{maiTOmdd}
 \title{Individual Tree Model to Diameter Distribution Model}
 \usage{
-maiTOmdd(projeto, talhao, parcela, fila, cova, fuste, idade, dap, volume,
-  espacamento, amplitude = 1, verbose = FALSE)
+maiTOmdd(
+  projeto,
+  talhao,
+  parcela,
+  fila,
+  cova,
+  fuste,
+  idade,
+  dap,
+  volume,
+  espacamento,
+  amplitude = 1,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{projeto}{is the field that contains the cod project of individuals}

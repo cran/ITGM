@@ -4,8 +4,7 @@
 \alias{getModelosLiteraturaExclusivos}
 \title{get Models Literature Exclusives}
 \usage{
-getModelosLiteraturaExclusivos(mapeamento = c("idade1", "idade2", "bai1",
-  "s"))
+getModelosLiteraturaExclusivos(mapeamento = c("idade1", "idade2", "bai1", "s"))
 }
 \arguments{
 \item{mapeamento}{list of names fields of database will work "idade1", "idade2", "bai1", "s"}
